@@ -6,24 +6,45 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
-              width: 300.0,
+              width: 364,
               child: TextField(
                 textAlign: TextAlign.center,
-                decoration: InputDecoration(hintText: "IP Address"),
+                controller: controller,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white.withOpacity(0.12),
+                  hintText: "USERNAME",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(3.0),
+                  ),
+                ),
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
             Container(
-              child: Text("Sanket")
-            ) 
+              width: 150,
+              height: 40,
+              child: ElevatedButton(
+                child: Text(
+                  "Login"
+                ),
+                onPressed: (){},
+              ),
+            ),
           ]
         )
       )
