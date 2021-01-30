@@ -15,10 +15,12 @@
       </div>    
     </div>
   </body>
+
 </template>
 
 <script>
 import QrcodeVue from 'qrcode.vue'
+import { bookingQueue, bookings } from '../main'
 
 export default {
   name: 'HelloWorld',
@@ -44,18 +46,17 @@ export default {
       if (name.length > 0 && date.length > 0 && count.length > 0) {
         this.valid = true
         alert("Generate QR Code")
-        if (event) {
-          this.updateBookingList()
-        }
+        this.pushToStore(name, date, count)
       }
       else {
-        alert("Enter details to generate QR Code")
+        alert("Enter complete details to generate QR Code")
       }
     },
-    updateBookingList: function (event) {
-      alert("Visitor list upated")
+    pushToStore: function(name, date, count) {
+      const bookedAt = Date.now()
+      bookingQueue.doc(bookedAt).set({bookedAt: bookedAt})
+      bookings.doc(bookedAt).set({name: name, date: date, count: count})
     }
-
   }
 }
 </script>
