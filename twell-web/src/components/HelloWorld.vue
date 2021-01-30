@@ -19,8 +19,8 @@
 </template>
 
 <script>
-  import QrcodeVue from 'qrcode.vue'
-  import { bookingQueue, bookings } from '../main'
+import QrcodeVue from 'qrcode.vue'
+import { bookingQueue, bookings } from '../main'
 
 export default {
   name: 'HelloWorld',
@@ -60,3 +60,20 @@ export default {
   }
 }
 </script>
+
+<style>
+.body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 200px;
+}
+
+.skip {
+  height: 10px;
+}
+</style>
