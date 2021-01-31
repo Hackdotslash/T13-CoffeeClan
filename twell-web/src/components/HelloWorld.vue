@@ -20,7 +20,6 @@
 
 <script>
 import QrcodeVue from 'qrcode.vue'
-import { bookingQueue, bookings } from '../main'
 
 export default {
   name: 'HelloWorld',

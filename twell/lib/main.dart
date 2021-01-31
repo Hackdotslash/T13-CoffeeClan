@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:twell/pages/register.dart';
 import 'package:twell/pages/scanner.dart';
 
 void main() {
