@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:twell/pages/info.dart';
 
 class ScannerPage extends StatefulWidget {
   @override
@@ -36,11 +37,6 @@ class _ScannerPageState extends State<ScannerPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  if (result != null)
-                    Text(
-                        'Barcode Type: ${describeEnum(result.format)}   Data: ${result.code}')
-                  else
-                    Text('Scan a code'),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -136,9 +132,10 @@ class _ScannerPageState extends State<ScannerPage> {
       this.controller = controller;
     });
     controller.scannedDataStream.listen((scanData) {
-      setState(() {
-        result = scanData;
-      });
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => InfoPage(scanData)),
+      );
     });
   }
 
